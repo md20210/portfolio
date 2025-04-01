@@ -796,7 +796,7 @@ h3 {
                             align-items: center; /* Vertical centering */
                             justify-content: center; /* Horizontal centering */
                             &.bot {
-                                background: url('./imgs/grok-logo.png') no-repeat center; /* Placeholder path */
+                                background: url('./imgs/Grok-logo.png') no-repeat center; /* Placeholder path */
                                 background-size: cover; /* Cover background */
                                 color: transparent; /* Hide text "Grok" */
                             }
