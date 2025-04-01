@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!-- Defines the document type as HTML5 -->
+<html lang="en">
+<!-- Root element with English as the default language -->
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+    <!-- Viewport settings for responsive design on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title with a data attribute for translation -->
+    <title data-translate="title">Portfolio PMO</title>
+    <!-- Preconnect to Google Fonts for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preconnect to Google Fonts static content -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Loads Open Sans font with multiple weights and styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Links to external stylesheet for styling -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Favicon for the browser tab (consider using .ico or .png for broader compatibility) -->
+    <link rel="icon" type="image/jpg" href="./imgs/MD.jpg">
+</head>
+<body>
+    <!-- Header section containing logo and navigation -->
+    <header>
+        <!-- Logo link to projects page -->
+        <a href="projects.html" class="logo-holder">
+            <!-- Logo symbol -->
+            <div class="logo">L</div>
+            <!-- Logo text with translation attribute -->
+            <div class="logo-text" data-translate="logo-text">Portfolio Website</div>
+        </a>
+        <!-- Navigation section -->
+        <nav>
+            <!-- Main menu list -->
+            <ul id="menu">
+                <!-- Home link with translation attribute -->
+                <li><a href="#" data-translate="nav-home">Home</a></li>
+                <!-- Skills section link with translation attribute -->
+                <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+                <!-- Projects section link with translation attribute -->
+                <li><a href="#projects" data-translate="nav-projects">Projects</a></li>
+                <!-- Chatbot section link with translation attribute -->
+                <li><a href="#chatbot" data-translate="nav-chatbot">Chatbot</a></li>
+                <!-- Contact link styled as a button with translation attribute -->
+                <li><a href="mailto:michael.dabrock@gmx.es" class="button" data-translate="nav-contact">Contact Me</a></li>
+            </ul>
+            <!-- Language switcher for multilingual support -->
+            <div class="language-switcher">
+                <!-- Button for English language -->
+                <button data-lang="en">EN</button>
+                <!-- Button for German language -->
+                <button data-lang="de">DE</button>
+                <!-- Button for Spanish language -->
+                <button data-lang="es">ES</button>
+            </div>
+            <!-- Mobile menu toggle with hamburger icon -->
+            <a href="#" class="mobile-toggle" onclick="toggleMobileMenu()">
+                <!-- SVG icon for mobile menu (hamburger) -->
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+    <!-- Main content area -->
+    <main>
+        <!-- Hero section with introduction and image -->
+        <section class="hero container">
+            <!-- Blue-themed introduction area -->
+            <div class="hero-blue">
+                <div>
+                    <!-- Main heading with a small introductory text -->
+                    <h1><small data-translate="hero-hi">Hi I'm</small> Michael Dabrock</h1>
+                    <!-- Introductory paragraph with translation attributes -->
+                    <p data-translate="hero-intro">
+                        Project Manager and IT Architect in Spain and I'm interested in AI topics since a longer time. 
+                        <span data-translate="hero-ai">So I also add things like ChatGPT and Grok into my projects these days.</span>
+                    </p>
+                    <!-- Call-to-action buttons -->
+                    <div class="call-to-action">
+                        <!-- Link to view resume PDF with ID for dynamic updates -->
+                        <a id="resume-link" href="./Resume Eng.pdf" class="button black" data-translate="hero-resume">View Resume</a>
+                        <!-- Email contact link -->
+                        <a href="mailto:michael.dabrock@gmx.es" class="button white" data-translate="hero-contact">Contact Me</a>
+                    </div>
+                    <!-- Social media links -->
+                    <div class="social-links">
+                        <!-- LinkedIn profile link with icon -->
+                        <a href="https://www.linkedin.com/in/michaeldabrock/" target="_blank">
+                            <img src="./imgs/linkedin.png" alt="Michael Dabrock's LinkedIn Profile" width="48" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Yellow-themed image area -->
+            <div class="hero-yellow">
+                <!-- Profile image with descriptive alt text -->
+                <img src="./imgs/MD.jpg" alt="Portrait of Michael Dabrock" loading="lazy">
+            </div>
+        </section>
+        <!-- Logos section with a marquee effect -->
+        <section class="logos container">
+            <!-- Marquee container for scrolling logos -->
+            <div class="marquee">
+                <!-- Track containing logos for animation -->
+                <div class="track">
+                    <!-- Logos with lazy loading for performance optimization -->
+                    <img src="./imgs/DeutschePost.jpeg" alt="Deutsche Post Supply Chain" width="128" loading="lazy">
+                    <img src="./imgs/Pharma.jpeg" alt="Pharma Industry" width="128" loading="lazy">
+                    <img src="./imgs/Team.jpeg" alt="Global Team Collaboration" width="128" loading="lazy">
+                    <img src="./imgs/Telecommunication.jpeg" alt="Telecommunication Industry" width="128" loading="lazy">
+                    <img src="./imgs/SOA Architecture.jpeg" alt="SOA Architecture" width="128" loading="lazy">
+                    <img src="./imgs/Pipe.jpeg" alt="Pipe Manufacturing" width="128" loading="lazy">
+                    <img src="./imgs/ERPTeam.jpeg" alt="ERP Team" width="128" loading="lazy">
+                    <img src="./imgs/GlobalTeam.jpeg" alt="Global Team" width="128" loading="lazy">
+                    <img src="./imgs/Banking.jpeg" alt="Banking Industry" width="128" loading="lazy">
+                    <img src="./imgs/CarManufactor.jpeg" alt="Car Manufacturer" width="128" loading="lazy">
+                    <img src="./imgs/StockExchange.jpeg" alt="Stock Exchange" width="128" loading="lazy">
+                    <img src="./imgs/GlobalCollaboration.jpeg" alt="Global Collaboration" width="128" loading="lazy">
+                    <img src="./imgs/Insurance.jpeg" alt="Insurance Industry" width="128" loading="lazy">
+                    <img src="./imgs/Lawyer.jpeg" alt="Legal Services" width="128" loading="lazy">
+                    <!-- Repeated logos to ensure seamless scrolling -->
+                    <img src="./imgs/DeutschePost.jpeg" alt="Deutsche Post Supply Chain" width="128" loading="lazy">
+                    <img src="./imgs/Pharma.jpeg" alt="Pharma Industry" width="128" loading="lazy">
+                    <img src="./imgs/Team.jpeg" alt="Global Team Collaboration" width="128" loading="lazy">
+                    <img src="./imgs/Telecommunication.jpeg" alt="Telecommunication Industry" width="128" loading="lazy">
+                    <img src="./imgs/SOA Architecture.jpeg" alt="SOA Architecture" width="128" loading="lazy">
+                    <img src="./imgs/Pipe.jpeg" alt="Pipe Manufacturing" width="128" loading="lazy">
+                    <img src="./imgs/ERPTeam.jpeg" alt="ERP Team" width="128" loading="lazy">
+                    <img src="./imgs/GlobalTeam.jpeg" alt="Global Team" width="128" loading="lazy">
+                    <img src="./imgs/Banking.jpeg" alt="Banking Industry" width="128" loading="lazy">
+                    <img src="./imgs/CarManufactor.jpeg" alt="Car Manufacturer" width="128" loading="lazy">
+                    <img src="./imgs/StockExchange.jpeg" alt="Stock Exchange" width="128" loading="lazy">
+                    <img src="./imgs/GlobalCollaboration.jpeg" alt="Global Collaboration" width="128" loading="lazy">
+                    <img src="./imgs/Insurance.jpeg" alt="Insurance Industry" width="128" loading="lazy">
+                    <img src="./imgs/Lawyer.jpeg" alt="Legal Services" width="128" loading="lazy">
+                </div>
+            </div>
+        </section>
+        <!-- Skills section with ID for navigation -->
+        <section id="skills" class="skills container">
+            <!-- Heading with small text and main title -->
+            <h2><small data-translate="skills-about">About Me</small> <span data-translate="skills-title">Skills</span></h2>
+            <!-- Blue container for skills content -->
+            <div class="holder-blue">
+                <!-- Left column for skills and certifications -->
+                <div class="left-column">
+                    <!-- Management skills heading -->
+                    <h3 data-translate="skills-management">Management</h3>
+                    <!-- List of management skills -->
+                    <ul>
+                        <li data-translate="skills-pmo">PMO</li>
+                        <li data-translate="skills-portfolio">Project Portfolio Management</li>
+                        <li data-translate="skills-project">Project Management</li>
+                        <li data-translate="skills-leadership">Team Leadership</li>
+                        <li data-translate="skills-architecture">Enterprise Architecture</li>
+                        <li data-translate="skills-transformation">Digital Transformation</li>
+                        <li data-translate="skills-cloud">Cloud Migrations</li>
+                        <li data-translate="skills-agile">Agile Methodologies</li>
+                        <li data-translate="skills-risk">Risk and Stakeholder Management</li>
+                    </ul>
+                    <!-- Certifications heading -->
+                    <h3 data-translate="skills-certifications">Certifications</h3>
+                    <!-- List of certifications -->
+                    <ul>
+                        <li>IBM Solution Architect</li>
+                        <li>Stanford Advanced Project Management</li>
+                        <li>IBM Consultant</li>
+                        <li>Opengroup Master Certified Architect</li>
+                        <li>Scrum Master</li>
+                        <li>TOGAF</li>
+                    </ul>
+                </div>
+                <!-- Right column for personal bio -->
+                <div class="right-column">
+                    <!-- About me heading -->
+                    <h3 data-translate="skills-about-me">A bit about me</h3>
+                    <!-- Bio paragraph with translation attribute -->
+                    <p data-translate="skills-bio">
+                        Hi I'm Michael Dabrock, and I'm interested in AI topics which is why I also add things like ChatGPT and Grok into my projects these days!
+                    </p>
+                    <!-- Current project paragraph with translation attribute -->
+                    <p data-translate="skills-current">
+                        I'm currently working on a project that uses Azure AI to create a chatbot that can help answer questions about me.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Work experience section -->
+        <section class="work-experience container">
+            <!-- Heading with small text and main title -->
+            <h2><small data-translate="work-recent">Recent</small> <span data-translate="work-title">Work Experience</span></h2>
+            <!-- Container for job articles -->
+            <div class="jobs">
+                <!-- Job article for Cognizant -->
+                <article>
+                    <!-- Figure for job image and caption -->
+                    <figure>
+                        <div>
+                            <img src="./imgs/cognizant.jpeg" alt="Cognizant Program Manager Role" width="100%" loading="lazy">
+                            <figcaption data-translate="work-cognizant-caption">Cognizant Program Manager</figcaption>
+                        </div>
+                    </figure>
+                    <!-- Job title -->
+                    <h3 data-translate="work-cognizant-title">Program Manager</h3>
+                    <!-- Time period -->
+                    <div>2012-2023</div>
+                    <!-- Job description -->
+                    <p data-translate="work-cognizant-desc">Managing different programs for different international customers in the telecommunication, manufacturing, and pharma industry.</p>
+                </article>
+                <!-- Job article for Wipro -->
+                <article>
+                    <figure>
+                        <div>
+                            <img src="./imgs/wipro.jpeg" alt="Wipro Enterprise Architect Role" width="100%" loading="lazy">
+                            <figcaption data-translate="work-wipro-caption">Wipro Enterprise Architect</figcaption>
+                        </div>
+                    </figure>
+                    <h3 data-translate="work-wipro-title">Enterprise Architect</h3>
+                    <div>2009-2012</div>
+                    <p data-translate="work-wipro-desc">Managing different programs for various international customers in Spain and South Africa.</p>
+                </article>
+                <!-- Job article for IBM -->
+                <article>
+                    <figure>
+                        <div>
+                            <img src="./imgs/ibm.jpeg" alt="IBM Senior Architect Role" width="100%" loading="lazy">
+                            <figcaption data-translate="work-ibm-caption">IBM Senior Architect</figcaption>
+                        </div>
+                    </figure>
+                    <h3 data-translate="work-ibm-title">Senior Architect</h3>
+                    <div>2002-2009</div>
+                    <p data-translate="work-ibm-desc">Managing different programs for various international customers in Switzerland and India.</p>
+                </article>
+            </div>
+        </section>
+        <!-- Projects section with ID for navigation -->
+        <section id="projects" class="bento container">
+            <!-- Heading with small text and main title -->
+            <h2><small data-translate="projects-previous">Previous</small> <span data-translate="projects-title">Projects</span></h2>
+            <!-- Grid layout for project items -->
+            <div class="bento-grid">
+                <!-- Project 1 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/IBM India.jpeg" alt="Integration Team Setup in India" width="100%" loading="lazy">
+                    <figcaption data-translate="project-1">Setup an Integration Team in India</figcaption>
+                </a>
+                <!-- Project 2 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/DeutschePost.jpeg" alt="IT Application for Postal Service" width="100%" loading="lazy">
+                    <figcaption data-translate="project-2">Developing IT Application for supplying 10k Stores of a Postal Service Provider</figcaption>
+                </a>
+                <!-- Project 3 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/SOA Architecture.jpeg" alt="SOA Architecture for Telecom" width="100%" loading="lazy">
+                    <figcaption data-translate="project-3">Creating a SOA Architecture for a Telecommunication Company</figcaption>
+                </a>
+                <!-- Project 4 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/GlobalTeam.jpeg" alt="Cloud Migration for Pharma" width="100%" loading="lazy">
+                    <figcaption data-translate="project-4">Setup and leading a global Team of a Cloud Migration for a Pharma Company</figcaption>
+                </a>
+                <!-- Project 5 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/Pipe.jpeg" alt="Rolling Control System" width="100%" loading="lazy">
+                    <figcaption data-translate="project-5">Development of a Rolling Control System for a Tube Manufacturer</figcaption>
+                </a>
+                <!-- Project 6 -->
+                <a href="#" class="bento-item">
+                    <img src="./imgs/ERPTeamPeople.jpeg" alt="ERP Rollout for Telecom" width="100%" loading="lazy">
+                    <figcaption data-translate="project-6">Setup and leading a large-scale Team of an ERP Rollout for a Telecommunication Company</figcaption>
+                </a>
+            </div>
+        </section>
+        <!-- Chatbot section with ID for navigation -->
+        <section id="chatbot" class="chatbot container">
+            <!-- Heading with small text and main title -->
+            <h2><small data-translate="chatbot-talk">Talk to me</small> <span data-translate="chatbot-title">Chatbot</span></h2>
+            <!-- Blue-themed chatbot container -->
+            <div class="chatbot-blue">
+                <!-- Chat information area -->
+                <div class="chat-info">
+                    <!-- Chatbot heading -->
+                    <h3 data-translate="chatbot-header">Grok AI Chatbot</h3>
+                    <!-- Chatbot description -->
+                    <p data-translate="chatbot-info">
+                        I've integrated Grok from xAI here. It knows my skills, experience, and resume. Ask it anything, and it’ll give you maximally helpful answers!
+                    </p>
+                    <!-- Opportunity text -->
+                    <p data-translate="chatbot-opportunity">
+                        You can also download my resume. I’m currently looking for new opportunities – if you have a project I’d fit, let me know!
+                    </p>
+                    <!-- Resume download link with ID for dynamic updates -->
+                    <a id="chatbot-resume-link" href="./Resume Eng.pdf" class="button black" data-translate="chatbot-resume">Download Resume</a>
+                </div>
+                <!-- Chatbox for interaction -->
+                <div class="chat-box">
+                    <!-- Scrollable area for chat messages -->
+                    <div class="scroll-area">
+                        <!-- List of chat messages -->
+                        <ul id="chat-log">
+                            <!-- Initial chatbot greeting -->
+                            <li>
+                                <span class="avatar bot">Grok</span>
+                                <div class="message" data-translate="chatbot-welcome">Hello! I’m Grok, created by xAI. I know Michael’s portfolio inside out. How can I help you?</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Input area for sending messages -->
+                    <div class="chat-message">
+                        <!-- Text input for user queries -->
+                        <input type="text" data-translate-placeholder="chatbot-placeholder" placeholder="Hey Grok, what are Michael’s best skills?">
+                        <!-- Send button -->
+                        <button class="button black" data-translate="chatbot-send">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Scripts loaded with defer to ensure DOM is fully parsed before execution -->
+    <script src="./translations.js" defer></script> <!-- Handles translations for multilingual support -->
+    <script src="./language.js" defer></script> <!-- Manages language switching logic -->
+    <script src="./menu.js" defer></script> <!-- Controls mobile menu toggle -->
+    <script src="./chatbot.js" defer></script> <!-- Implements chatbot functionality -->
+    <script src="./main.js" defer></script> <!-- General site scripting -->
+</body>
+</html>

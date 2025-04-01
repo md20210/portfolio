@@ -1,0 +1,875 @@
+/* Reset for all elements including pseudo-elements to standardize box-sizing and remove default spacing */
+*::before,
+*::after {
+    box-sizing: border-box; /* Ensures padding and border are included in width/height */
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Removes default padding */
+}
+
+/* Global variables for colors to ensure a consistent design */
+:root {
+    --base: #555; /* Default gray tone for text and accents */
+    --base-100: #f1f1f1; /* Light gray for backgrounds */
+    --base-400: #555; /* Medium gray, identical to --base */
+    --base-800: #000; /* Black for strong contrasts */
+    --yellow: #ffda4b; /* Primary yellow for highlights */
+    --yellow-100: #fffbe6; /* Very light yellow for backgrounds */
+    --yellow-400: #ffda4b; /* Medium yellow, identical to --yellow */
+    --yellow-800: #8b6f00; /* Dark yellow for accents */
+    --blue: #0a61ae; /* Primary blue for buttons and links */
+    --blue-100: #e2f8ff; /* Light blue for backgrounds */
+    --blue-400: #61dafb; /* Medium blue for hover effects */
+    --blue-800: #0a61ae; /* Dark blue, identical to --blue */
+}
+
+/* Basic styling rules for the body */
+body {
+    font-family: "Open Sans", sans-serif; /* Uses the Google Font 'Open Sans' */
+    font-optical-sizing: auto; /* Optimizes font size for readability */
+    font-style: normal; /* No italic font */
+    font-size: 20px; /* Default font size */
+    min-height: 200vh; /* Minimum height of 200% of viewport height for scroll testing */
+    padding-bottom: 1000px; /* Additional bottom padding, can be removed if min-height suffices */
+}
+
+/* Styling for links */
+a {
+    text-decoration: none; /* Removes underline from links */
+    color: var(--blue); /* Sets link color to blue */
+    &:hover {
+        text-decoration: underline; /* Adds underline on hover */
+    }
+}
+
+/* Styling for the header */
+header {
+    padding-top: 10px; /* Top padding */
+    padding-bottom: 10px; /* Bottom padding */
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: space-between; /* Space between logo and navigation */
+    max-width: 1440px; /* Maximum width of the header */
+    margin: auto; /* Centers the header */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Subtle bottom border */
+
+    .logo-holder {
+        display: flex; /* Flexbox for logo and text */
+        padding: 10px; /* Inner padding */
+        align-items: center; /* Vertical centering */
+        font-weight: 600; /* Bold font for logo text */
+        color: var(--base-800); /* Black color */
+        .logo {
+            display: flex; /* Flexbox for the logo symbol */
+            align-items: center; /* Centers content vertically */
+            justify-content: center; /* Centers content horizontally */
+            font-size: 32px; /* Size of the logo letter */
+            background-color: var(--base-800); /* Black background */
+            color: var(--base-100); /* Light text color */
+            height: 64px; /* Fixed height */
+            width: 64px; /* Fixed width */
+            margin-right: 20px; /* Space to the text */
+            border-radius: 50%; /* Circular logo */
+        }
+        .logo-text {
+            flex: 1; /* Takes up remaining space */
+        }
+    }
+
+    nav {
+        display: flex; /* Flexbox for navigation elements */
+        align-items: center; /* Vertical centering */
+        ul {
+            display: flex; /* Horizontal menu items */
+            list-style-type: none; /* Removes bullet points */
+            gap: 5px; /* Space between menu items */
+            li {
+                display: inline-block; /* Inline elements for menu items */
+                a {
+                    display: inline-block; /* Block behavior for padding */
+                    padding: 10px 20px; /* Padding for clickable area */
+                    color: var(--base); /* Gray text color */
+                    &:hover {
+                        background-color: var(--base-100); /* Light background on hover */
+                        border-radius: 10px; /* Rounded corners */
+                        text-decoration: none; /* No underline */
+                    }
+                }
+            }
+        }
+        .mobile-toggle {
+            display: none; /* Hidden by default */
+            color: var(--base-800); /* Black color */
+            padding: 10px; /* Inner padding */
+            cursor: pointer; /* Pointer on hover */
+            svg {
+                width: 24px; /* Size of the hamburger icon */
+                height: 24px;
+                stroke: var(--base-800); /* Black lines */
+            }
+            @media (max-width: 768px) {
+                display: inline-block; /* Visible on mobile devices */
+                position: absolute; /* Positioned top-right */
+                top: 20px;
+                right: 20px;
+            }
+        }
+    }
+
+    /* Responsive adjustments for header */
+    @media (max-width: 1024px) {
+        flex-direction: column; /* Vertical alignment at medium width */
+        align-items: center; /* Centering */
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column; /* Vertical alignment on mobile devices */
+        align-items: center;
+        nav {
+            margin-top: 10px; /* Space above navigation */
+            width: 100%; /* Full width */
+            ul {
+                display: none; /* Hidden by default */
+                flex-direction: column; /* Vertical menu items */
+                text-align: center; /* Centered text */
+                width: 100%; /* Full width */
+                a {
+                    width: 100%; /* Full width for links */
+                }
+                &.active {
+                    display: flex; /* Visible when .active is added */
+                }
+            }
+        }
+    }
+}
+
+/* Styling for containers */
+.container {
+    max-width: 1440px; /* Maximum width */
+    margin: auto; /* Centers the container */
+    gap: 30px; /* Space between elements */
+    margin-top: 30px; /* Top margin */
+    margin-bottom: 30px; /* Bottom margin */
+    @media (max-width: 1440px) {
+        padding-left: 30px; /* Left padding on smaller screens */
+        padding-right: 30px; /* Right padding on smaller screens */
+    }
+}
+
+/* Styling for buttons */
+.button {
+    display: inline-block; /* Inline-block for padding */
+    padding: 10px 30px; /* Inner padding */
+    background-color: var(--blue); /* Blue background */
+    color: var(--base-100); /* Light text color */
+    border-radius: 10px; /* Rounded corners */
+    transition: ease 0.3s all; /* Smooth transition for all changes */
+    &:hover {
+        text-decoration: none; /* No underline on hover */
+        background-color: var(--base-800); /* Black background on hover */
+    }
+    &.white {
+        background-color: white; /* White background */
+        color: var(--base-800); /* Black text */
+        &:hover {
+            background-color: var(--base-100); /* Light gray on hover */
+            color: var(--base); /* Gray text */
+        }
+    }
+    &.black {
+        background-color: black; /* Black background */
+        color: white; /* White text */
+        &:hover {
+            background-color: var(--base); /* Gray background on hover */
+            color: var(--base-100); /* Light text */
+        }
+    }
+}
+
+/* Styling for h1 headings */
+h1 {
+    font-size: 64px; /* Large font size */
+    line-height: 1; /* Tight line spacing */
+    margin-bottom: 10px; /* Bottom margin */
+    small {
+        display: block; /* Block display for small text */
+        font-weight: 100; /* Light font weight */
+    }
+    @media (max-width: 1024px) {
+        font-size: 48px; /* Smaller font on medium screens */
+    }
+}
+
+/* Styling for the hero section */
+.hero {
+    display: flex; /* Flexbox for layout */
+    @media (max-width: 768px) {
+        flex-direction: column; /* Vertical layout on mobile */
+    }
+    .hero-blue {
+        flex: 1; /* Takes equal space */
+        background-color: var(--blue-100); /* Light blue background */
+        border-radius: 30px; /* Rounded corners */
+        padding: 30px; /* Inner padding */
+        display: flex; /* Flexbox for content */
+        flex-direction: column; /* Vertical alignment */
+        justify-content: center; /* Centered content */
+        span {
+            @media (max-width: 1024px) {
+                display: none; /* Hidden on medium screens */
+            }
+        }
+        .call-to-action {
+            margin-top: 20px; /* Top margin */
+            margin-bottom: 10px; /* Bottom margin */
+            a {
+                margin-right: 10px; /* Space between buttons */
+                margin-bottom: 10px; /* Bottom margin */
+            }
+        }
+        .social-links {
+            a {
+                &:hover {
+                    text-decoration: none; /* No underline on hover */
+                }
+            }
+        }
+    }
+    .hero-yellow {
+        flex: 1; /* Takes equal space */
+        background-color: var(--base-400); /* Gray background */
+        border-radius: 30px; /* Rounded corners */
+        padding: 0px 30px; /* Horizontal padding */
+        display: flex; /* Flexbox for content */
+        justify-content: center; /* Centered horizontally */
+        align-items: flex-end; /* Aligned to bottom */
+        img {
+            margin-top: -60px; /* Overlaps above section */
+            max-width: 420px; /* Maximum image width */
+            margin-bottom: 30px; /* Bottom margin */
+        }
+    }
+}
+
+/* Styling for the language switcher */
+.language-switcher {
+    display: flex; /* Flexbox for buttons */
+    gap: 10px; /* Space between buttons */
+    margin-left: 20px; /* Left margin */
+    button {
+        background-color: var(--base-100); /* Light gray background */
+        border: none; /* No border */
+        padding: 5px 10px; /* Inner padding */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer on hover */
+        font-size: 14px; /* Smaller font size */
+        &:hover {
+            background-color: var(--blue-400); /* Medium blue on hover */
+            color: white; /* White text */
+        }
+        &[data-lang="${currentLang}"] {
+            background-color: var(--blue); /* Blue for active language */
+            color: white; /* White text */
+        }
+    }
+    @media (max-width: 768px) {
+        margin-top: 10px; /* Top margin on mobile */
+    }
+}
+.language-switcher button.active {
+    background-color: var(--blue); /* Blue background for active state */
+    color: white; /* White text */
+}
+
+/* Styling for the logos section */
+.logos {
+    background-color: var(--base-100); /* Light gray background */
+    border-radius: 30px; /* Rounded corners */
+    padding: 30px 0px; /* Vertical padding */
+    @media (max-width: 1440px) {
+        border-radius: 0px; /* No rounding on smaller screens */
+    }
+    .marquee {
+        width: 100vw; /* Full viewport width */
+        max-width: 100%; /* Limits to container */
+        height: 128px; /* Fixed height */
+        overflow: hidden; /* Hides overflow */
+        position: relative; /* Positioning context */
+        .track {
+            position: absolute; /* Absolute positioning for animation */
+            white-space: nowrap; /* Prevents line breaks */
+            will-change: transform; /* Optimizes animation performance */
+            animation: marquee 40s linear infinite; /* Continuous scrolling */
+            display: flex; /* Flexbox for images */
+            gap: 10px; /* Space between images */
+        }
+    }
+}
+
+/* Animation for the marquee effect */
+@keyframes marquee {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    100% {
+        transform: translateX(-50%); /* End position (halfway) */
+    }
+}
+
+/* Styling for h2 headings */
+h2 {
+    font-size: 64px; /* Large font size */
+    line-height: 1; /* Tight line spacing */
+    margin-bottom: 10px; /* Bottom margin */
+    text-align: center; /* Centered text */
+    color: var(--base-800); /* Black text */
+    padding: 30px; /* Inner padding */
+    small {
+        display: block; /* Block display for small text */
+        font-weight: 100; /* Light font weight */
+        font-size: 0.5em; /* Half size of parent */
+        color: var(--base); /* Gray text */
+    }
+    @media (max-width: 1024px) {
+        font-size: 48px; /* Smaller font on medium screens */
+    }
+}
+
+/* Styling for h3 headings */
+h3 {
+    font-size: 32px; /* Medium font size */
+    font-weight: 600; /* Semi-bold */
+    line-height: 1; /* Tight line spacing */
+    margin-bottom: 20px; /* Bottom margin */
+    color: var(--base-800); /* Black text */
+}
+
+/* Styling for the skills section */
+.skills {
+    .holder-blue {
+        background-color: var(--blue-100); /* Light blue background */
+        border-radius: 30px; /* Rounded corners */
+        padding: 30px; /* Inner padding */
+        display: flex; /* Flexbox for layout */
+        @media (max-width: 1024px) {
+            flex-direction: column; /* Vertical layout on medium screens */
+        }
+        .left-column {
+            flex: 1; /* Takes equal space */
+            ul {
+                list-style-type: none; /* No bullet points */
+                gap: 10px; /* Space between items */
+                margin-right: 100px; /* Right margin */
+                margin-bottom: 20px; /* Bottom margin */
+                li {
+                    display: inline-block; /* Inline-block for items */
+                    background-color: var(--blue-400); /* Medium blue background */
+                    padding: 10px 20px; /* Inner padding */
+                    border-radius: 15px; /* Rounded corners */
+                    margin-bottom: 10px; /* Bottom margin */
+                }
+            }
+        }
+        .right-column {
+            flex: 1; /* Takes equal space */
+            p {
+                margin-bottom: 20px; /* Bottom margin for paragraphs */
+            }
+        }
+    }
+}
+
+/* Styling for the work experience section */
+.work-experience {
+    .jobs {
+        display: flex; /* Flexbox for layout */
+        gap: 30px; /* Space between articles */
+        @media (max-width: 1024px) {
+            flex-direction: column; /* Vertical layout on medium screens */
+        }
+        article {
+            background-color: var(--yellow-100); /* Light yellow background */
+            padding: 30px; /* Inner padding */
+            border-radius: 30px; /* Rounded corners */
+            flex: 1; /* Takes equal space */
+            h3 {
+                margin-top: 20px; /* Top margin */
+                margin-bottom: 10px; /* Bottom margin */
+            }
+            div {
+                font-weight: 600; /* Bold text */
+                margin-bottom: 5px; /* Bottom margin */
+                color: var(--base-800); /* Black text */
+            }
+            p {
+                margin-bottom: 10px; /* Bottom margin */
+            }
+            figure {
+                width: 85%; /* Width relative to container */
+                padding-top: 56.25%; /* Aspect ratio (16:9) */
+                overflow: hidden; /* Hides overflow */
+                position: relative; /* Positioning context */
+                border-radius: 15px; /* Rounded corners */
+                img {
+                    position: absolute; /* Absolute positioning */
+                    top: 0; /* Top aligned */
+                    left: 0; /* Left aligned */
+                    height: 100%; /* Full height */
+                    object-fit: cover; /* Covers container */
+                    transition: ease 3s all; /* Smooth transition */
+                }
+                figcaption {
+                    position: absolute; /* Absolute positioning */
+                    bottom: 0; /* Bottom aligned */
+                    left: 0; /* Left aligned */
+                    right: 0; /* Right aligned */
+                    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+                    color: var(--base-100); /* Light text */
+                    text-align: center; /* Centered text */
+                    padding: 10px; /* Inner padding */
+                    opacity: 0; /* Hidden by default */
+                    visibility: hidden; /* Hidden by default */
+                    transition: ease 0.3s all; /* Smooth transition */
+                }
+                CHI&:hover {
+                    figcaption {
+                        opacity: 1; /* Visible on hover */
+                        visibility: visible; /* Visible on hover */
+                    }
+                    img {
+                        transform: scale(1.2); /* Zoom effect on hover */
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Styling for the bento section */
+.bento {
+    .bento-grid {
+        display: grid; /* Grid layout */
+        grid-gap: 30px; /* Space between items */
+        grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+        grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+        height: 960px; /* Fixed height */
+        @media (max-width: 1024px) {
+            grid-template-rows: repeat(8, 1fr); /* 8 rows on medium screens */
+        }
+        @media (max-width: 768px) {
+            display: flex; /* Flexbox on mobile */
+            flex-direction: column; /* Vertical layout */
+            gap: 30px; /* Space between items */
+            height: auto; /* Auto height */
+        }
+        .bento-item {
+            padding: 30px; /* Inner padding */
+            background-color: var(--base-100); /* Light gray background */
+            border-radius: 15px; /* Rounded corners */
+            position: relative; /* Positioning context */
+            overflow: hidden; /* Hides overflow */
+            figcaption {
+                position: absolute; /* Absolute positioning */
+                bottom: 0; /* Bottom aligned */
+                left: 0; /* Left aligned */
+                right: 0; /* Right aligned */
+                background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+                color: var(--base-100); /* Light text */
+                text-align: center; /* Centered text */
+                padding: 10px; /* Inner padding */
+                opacity: 0; /* Hidden by default */
+                visibility: hidden; /* Hidden by default */
+                transition: ease 0.3s all; /* Smooth transition */
+            }
+            &:hover {
+                figcaption {
+                    opacity: 1; /* Visible on hover */
+                    visibility: visible; /* Visible on hover */
+                }
+                img {
+                    transform: scale(1.2); /* Zoom effect on hover */
+                }
+            }
+            @media (max-width: 768px) {
+                height: 240px; /* Fixed height on mobile */
+            }
+            &:nth-child(1) {
+                grid-column: span 2; /* Spans 2 columns */
+                grid-row: span 2; /* Spans 2 rows */
+                @media (max-width: 1024px) {
+                    grid-column: span 2; /* Adjusted for medium screens */
+                    grid-row: span 2;
+                }
+            }
+            &:nth-child(2) {
+                grid-column: span 2; /* Spans 2 columns */
+                grid-row: span 1; /* Spans 1 row */
+                @media (max-width: 1024px) {
+                    grid-column: span 3; /* Adjusted for medium screens */
+                    grid-row: span 2;
+                }
+            }
+            &:nth-child(3) {
+                grid-column: span 1; /* Spans 1 column */
+                grid-row: span 1; /* Spans 1 row */
+                @media (max-width: 1024px) {
+                    grid-column: span 3; /* Adjusted for medium screens */
+                    grid-row: span 2;
+                }
+            }
+            &:nth-child(4) {
+                grid-column: span 1; /* Spans 1 column */
+                grid-row: span 1; /* Spans 1 row */
+                @media (max-width: 1024px) {
+                    grid-column: span 2; /* Adjusted for medium screens */
+                    grid-row: span 4;
+                }
+            }
+            &:nth-child(5) {
+                grid-column: span 2; /* Spans 2 columns */
+                grid-row: span 1; /* Spans 1 row */
+                @media (max-width: 1024px) {
+                    grid-column: span 3; /* Adjusted for medium screens */
+                    grid-row: span 2;
+                }
+            }
+            &:nth-child(6) {
+                grid-column: span 5; /* Spans 5 columns */
+                grid-row: span 3; /* Spans 3 rows */
+                @media (max-width: 1024px) {
+                    grid-column: span 5; /* Adjusted for medium screens */
+                    grid-row: span 2;
+                }
+            }
+        }
+    }
+}
+
+/* Container styling for projects (applies to both pages) */
+.bento.container {
+    padding: 2rem 0; /* Vertical padding */
+}
+
+/* Layout for projects on index.html (Grid layout) */
+.bento-grid {
+    display: grid; /* Grid layout */
+    grid-gap: 30px; /* Space between items */
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+    height: 960px; /* Fixed height */
+    @media (max-width: 1024px) {
+        grid-template-rows: repeat(8, 1fr); /* 8 rows on medium screens */
+    }
+    @media (max-width: 768px) {
+        display: flex; /* Flexbox on mobile */
+        flex-direction: column; /* Vertical layout */
+        gap: 30px; /* Space between items */
+        height: auto; /* Auto height */
+    }
+}
+
+/* Styling for project items on index.html */
+.bento-item {
+    position: relative; /* Enables absolute positioning of figcaption */
+    padding: 30px; /* Inner padding */
+    background-color: var(--base-100); /* Light gray background */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hides overflow */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Image within project items on index.html */
+.bento-item img {
+    width: 100%; /* Full width */
+    height: auto; /* Auto height */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: ease 0.3s all; /* Smooth transition */
+}
+
+/* Caption centered at the bottom of the image on index.html */
+.bento-item figcaption {
+    position: absolute; /* Absolute positioning */
+    bottom: 0; /* Bottom aligned */
+    left: 0; /* Left aligned */
+    right: 0; /* Right aligned */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: var(--base-100); /* Light text */
+    text-align: center; /* Centered text */
+    padding: 10px; /* Inner padding */
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    transition: ease 0.3s all; /* Smooth transition */
+}
+
+/* Make caption visible on hover on index.html */
+.bento-item:hover figcaption {
+    opacity: 1; /* Visible on hover */
+    visibility: visible; /* Visible on hover */
+}
+
+/* Hover effect for project items on index.html */
+.bento-item:hover img {
+    transform: scale(1.2); /* Zoom effect on hover */
+}
+
+/* Grid positions for bento items on index.html */
+.bento-item:nth-child(1) {
+    grid-column: span 2; /* Spans 2 columns */
+    grid-row: span 2; /* Spans 2 rows */
+    @media (max-width: 1024px) {
+        grid-column: span 2; /* Adjusted for medium screens */
+        grid-row: span 2;
+    }
+}
+.bento-item:nth-child(2) {
+    grid-column: span 2; /* Spans 2 columns */
+    grid-row: span 1; /* Spans 1 row */
+    @media (max-width: 1024px) {
+        grid-column: span 3; /* Adjusted for medium screens */
+        grid-row: span 2;
+    }
+}
+.bento-item:nth-child(3) {
+    grid-column: span 1; /* Spans 1 column */
+    grid-row: span 1; /* Spans 1 row */
+    @media (max-width: 1024px) {
+        grid-column: span 3; /* Adjusted for medium screens */
+        grid-row: span 2;
+    }
+}
+.bento-item:nth-child(4) {
+    grid-column: span 1; /* Spans 1 column */
+    grid-row: span 1; /* Spans 1 row */
+    @media (max-width: 1024px) {
+        grid-column: span 2; /* Adjusted for medium screens */
+        grid-row: span 4;
+    }
+}
+.bento-item:nth-child(5) {
+    grid-column: span 2; /* Spans 2 columns */
+    grid-row: span 1; /* Spans 1 row */
+    @media (max-width: 1024px) {
+        grid-column: span 3; /* Adjusted for medium screens */
+        grid-row: span 2;
+    }
+}
+.bento-item:nth-child(6) {
+    grid-column: span 5; /* Spans 5 columns */
+    grid-row: span 3; /* Spans 3 rows */
+    @media (max-width: 1024px) {
+        grid-column: span 5; /* Adjusted for medium screens */
+        grid-row: span 2;
+    }
+}
+@media (max-width: 768px) {
+    .bento-item {
+        height: 240px; /* Fixed height on mobile */
+    }
+}
+
+/* New layout for projects on projects.html: Vertical arrangement */
+.projects-list {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Items stacked vertically */
+    gap: 2rem; /* Space between projects */
+    max-width: 800px; /* Maximum width for projects */
+    margin: 0 auto; /* Centers the list */
+}
+
+/* Styling for each project item on projects.html */
+.projects-item {
+    position: relative; /* Enables absolute positioning of figcaption */
+    display: block; /* Ensures full width */
+    text-align: center; /* Centers text */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+    max-width: 600px; /* Maximum width of the container */
+    margin: 0 auto; /* Centers the item */
+}
+
+/* Image within project items on projects.html */
+.projects-item img {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Maximum image width */
+    height: auto; /* Auto height */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: block; /* Removes unwanted spacing below image */
+}
+
+/* Caption at the bottom of the image on projects.html */
+.projects-item figcaption {
+    position: absolute; /* Absolute positioning */
+    bottom: 10px; /* Space from bottom edge */
+    left: 0; /* Left aligned */
+    right: 0; /* Right aligned */
+    margin: 0 auto; /* Centers caption horizontally */
+    width: calc(100% - 40px); /* Width of image minus padding (20px left + 20px right) */
+    max-width: 560px; /* Maximum caption width matches image (600px - 40px) */
+    padding: 1rem; /* Inner padding */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: #fff; /* White text */
+    font-size: 1.2rem; /* Font size */
+    font-weight: 500; /* Medium font weight */
+    text-align: center; /* Centered text */
+    border-radius: 8px; /* Rounded corners */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade transition */
+}
+
+/* Make caption visible on hover on projects.html */
+.projects-item:hover figcaption {
+    opacity: 1; /* Visible on hover */
+}
+
+/* Hover effect for project items on projects.html */
+.projects-item:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Responsive adjustments for projects.html */
+@media (max-width: 768px) {
+    .projects-item {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+    .projects-item img {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+    .projects-item figcaption {
+        width: calc(100% - 20px); /* Less padding on smaller screens */
+        max-width: none; /* No max width on smaller screens */
+        font-size: 1rem; /* Smaller font on mobile */
+        padding: 0.5rem; /* Reduced padding */
+    }
+}
+
+/* Styling for the chatbot section */
+.chatbot {
+    .chatbot-blue {
+        background-color: var(--blue-100); /* Light blue background */
+        border-radius: 30px; /* Rounded corners */
+        padding: 30px; /* Inner padding */
+        gap: 30px; /* Space between elements */
+        display: flex; /* Flexbox layout */
+        @media (max-width: 1024px) {
+            flex-direction: column; /* Vertical layout on medium screens */
+        }
+        p {
+            margin-bottom: 30px; /* Bottom margin for paragraphs */
+        }
+        .chat-info {
+            flex: 3; /* Takes 3 parts of space */
+            padding-right: 30px; /* Right padding */
+        }
+        .chat-box {
+            flex: 4; /* Takes 4 parts of space */
+            background: white; /* White background */
+            border-radius: 15px; /* Rounded corners */
+            padding: 30px; /* Inner padding */
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Vertical alignment */
+            .scroll-area {
+                max-height: 300px; /* Maximum height */
+                height: 300px; /* Fixed height */
+                overflow-y: scroll; /* Vertical scrolling */
+                ul {
+                    display: flex; /* Flexbox for messages */
+                    flex-direction: column; /* Vertical alignment */
+                    justify-content: flex-end; /* Messages at bottom */
+                    gap: 15px; /* Space between messages */
+                    li {
+                        display: flex; /* Flexbox for message layout */
+                        align-items: center; /* Vertical centering */
+                        gap: 15px; /* Space between avatar and text */
+                        &:nth-child(even) {
+                            text-align: right; /* Right-aligned for even messages */
+                            justify-content: flex-end; /* Right-aligned */
+                            flex-direction: row-reverse; /* Reverse layout */
+                            span {
+                                background-color: var(--yellow); /* Yellow background */
+                            }
+                        }
+                        span {
+                            width: 64px; /* Avatar width */
+                            height: 64px; /* Avatar height */
+                            border-radius: 50%; /* Circular avatar */
+                            display: inline-flex; /* Flexbox for centering */
+                            align-items: center; /* Vertical centering */
+                            justify-content: center; /* Horizontal centering */
+                            &.bot {
+                                background: url('./imgs/grok-logo.png') no-repeat center; /* Placeholder path */
+                                background-size: cover; /* Cover background */
+                                color: transparent; /* Hide text "Grok" */
+                            }
+                            &.user {
+                                background-color: var(--blue-400); /* Medium blue background */
+                            }
+                            @media (max-width: 768px) {
+                                width: 48px; /* Smaller avatar on mobile */
+                                height: 48px;
+                            }
+                        }
+                        div {
+                            flex: 1; /* Takes remaining space */
+                        }
+                    }
+                }
+            }
+            .chat-message {
+                display: flex; /* Flexbox for input and button */
+                margin-top: 15px; /* Top margin */
+                gap: 15px; /* Space between elements */
+                input {
+                    border-radius: 10px; /* Rounded corners */
+                    flex: 1; /* Takes remaining space */
+                    padding: 15px; /* Inner padding */
+                    border: 1px solid transparent; /* Transparent border */
+                    background-color: var(--base-100); /* Light gray background */
+                    &:hover {
+                        outline: none; /* No outline */
+                        background-color: white; /* White on hover */
+                        border: 1px solid var(--base-100); /* Light gray border */
+                    }
+                    &:focus {
+                        outline: none; /* No outline */
+                        background-color: white; /* White on focus */
+                        border: 1px solid var(--base-100); /* Light gray border */
+                    }
+                }
+                button {
+                    border: none; /* No border */
+                    cursor: pointer; /* Pointer on hover */
+                }
+            }
+        }
+    }
+}
+
+/*
+Summary of Test Results
+Overall: The CSS is well-written, responsive, and functional for a portfolio site with a modern design. It assumes integration with JavaScript (e.g., for menu toggling, language switching, and chatbot interactivity) and possibly a preprocessor like SCSS.
+
+Strengths: 
+Consistent use of variables for theming.
+
+Effective responsive design with media queries.
+
+Smooth animations and transitions.
+
+Weaknesses: 
+Minor accessibility concerns (focus styles, marquee pausing).
+
+Potential JavaScript dependency for dynamic styles (e.g., language switcher).
+
+Small syntax issues (e.g., CHI&:hover, duplicate definitions).
+
+Recommendations
+Fix Syntax: Remove CHI from .work-experience figure &:hover and clarify the .language-switcher [data-lang="${currentLang}"] intent (e.g., use a class like .active instead).
+
+Enhance Accessibility: Add :focus styles for interactive elements and a :hover pause for .marquee.
+
+Consolidate Duplicates: Merge the duplicate .bento-grid and .bento-item definitions to avoid conflicts.
+
+Test in Browser: Validate the .mobile-toggle and .language-switcher behavior with the accompanying JavaScript to ensure they work as intended.
+
+If you have the accompanying HTML and JavaScript files or a live environment, I’d recommend testing there to confirm dynamic behavior. Let me know if you’d like assistance refining the code further based on these findings!
+*/

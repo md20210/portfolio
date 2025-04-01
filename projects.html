@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/jpg" href="./imgs/MD.jpg">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-holder">
+            <div class="logo">L</div>
+            <div class="logo-text" data-translate="logo-text">Portfolio Website</div>
+        </a>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html" data-translate="nav-home">Home</a></li>
+                <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
+                <li><a href="#projects" data-translate="nav-projects">Projects</a></li>
+                <li><a href="#chatbot" data-translate="nav-chatbot">Chatbot</a></li> 
+                <li><a href="mailto:michael.dabrock@gmx.es" class="button" data-translate="nav-contact">Contact Me</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button data-lang="en">EN</button>
+                <button data-lang="de">DE</button>
+                <button data-lang="es">ES</button>
+            </div>
+            <a href="#" class="mobile-toggle" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section id="projects" class="bento container">
+            <h2><small data-translate="projects-previous">Previous</small> <span data-translate="projects-title">Projects</span></h2>
+            <div class="projects-list">
+                <a href="#" class="projects-item">
+                    <img src="./imgs/IBM India.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-1">Setup an Integration Team in India</figcaption>
+                </a>
+                <a href="#" class="projects-item">
+                    <img src="./imgs/DeutschePost.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-2">Developing IT Application for supplying 10k Stores of a Postal Service Provider</figcaption>
+                </a>
+                <a href="#" class="projects-item">
+                    <img src="./imgs/SOA Architecture.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-3">Creating a SOA Architecture for a Telecommunication Company</figcaption>
+                </a>
+                <a href="#" class="projects-item">
+                    <img src="./imgs/GlobalTeam.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-4">Setup and leading a global Team of a Cloud Migration for a Pharma Company</figcaption>
+                </a>
+                <a href="#" class="projects-item">
+                    <img src="./imgs/Pipe.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-5">Development of a Rolling Control System for a Tube Manufacturer</figcaption>
+                </a>
+                <a href="#" class="projects-item">
+                    <img src="./imgs/ERPTeamPeople.jpeg" alt="" width="100%" />
+                    <figcaption data-translate="project-6">Setup and leading a large-scale Team of a ERP Rollout for a Telecommunication Company</figcaption>
+                </a>
+            </div>
+        </section>
+    </main>
+    <script src="./translations.js" defer></script>
+    <script src="./language.js" defer></script>
+    <script src="./menu.js" defer></script>
+    <script src="./main.js" defer></script>
+
+</body>
+</html>
